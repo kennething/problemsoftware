@@ -3,6 +3,10 @@
   "displayName": "ProblemSoftware",
   "description": "Problems in your software? PirateSoftware will be there to remind you to not code like him!",
   "version": "0.1.0",
+  "publisher": "KennethNg",
+  "repository": {
+    "url": "https://github.com/kennething/problemsoftware"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },

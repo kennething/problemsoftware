@@ -2,6 +2,8 @@
 
 Problems in your software? PirateSoftware will be there to remind you to not code like him!
 
+Download the extension ![here](https://marketplace.visualstudio.com/items?itemName=KennethNg.problemsoftware) or look for `KennethNg.problemsoftware` in the VSCode Extensions tab.
+
 ## Features
 
 Adds a view container with a lovely picture of PirateSoftware in his natural habitat.
