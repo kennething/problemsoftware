@@ -1,4 +1,4 @@
-# problem-software README
+# ProblemSoftware
 
 Problems in your software? PirateSoftware will be there to remind you to not code like him!
 
@@ -10,10 +10,8 @@ As your problems increase, so will he.
 
 Also adds some encouraging messages to motivate you to fix your problems.
 
-<div style="align-items: center">
-  ![ProblemSoftware with 0 problems](./src/assets/0-problems.png)
-  ![ProblemSoftware with 50 problems](./src/assets/50-problems.png)
-</div>
+![ProblemSoftware with 0 problems](./src/assets/0-problems.png)
+![ProblemSoftware with 50 problems](./src/assets/50-problems.png)
 
 ## Extension Settings
 
