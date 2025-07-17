@@ -1,6 +1,7 @@
 .vscode/**
 .vscode-test/**
 src/**
+!src/assets/pirate.png
 .gitignore
 .yarnrc
 vsc-extension-quickstart.md

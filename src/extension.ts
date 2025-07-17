@@ -25,7 +25,7 @@ export function activate(context: vscode.ExtensionContext) {
       const current = config.get<number>("maxProblemCount", 50);
 
       const input = await vscode.window.showInputBox({
-        prompt: "Enter the maximum number of problems before PirateSoftware eats your soul",
+        prompt: "Enter the maximum number of problems before the pirate eats your soul",
         value: current.toString(),
         validateInput: (value) => {
           const num = Number(value);
@@ -58,7 +58,7 @@ class MyWebviewViewProvider implements vscode.WebviewViewProvider {
       localResourceRoots: [vscode.Uri.file(path.join(this.context.extensionPath, "src", "assets"))]
     };
 
-    const imagePathOnDisk = vscode.Uri.file(path.join(this.context.extensionPath, "src", "assets", "piratesoftware.png"));
+    const imagePathOnDisk = vscode.Uri.file(path.join(this.context.extensionPath, "src", "assets", "pirate.png"));
     const imageSrc = webview.asWebviewUri(imagePathOnDisk);
 
     webview.html = this.getHtml(imageSrc.toString());
@@ -81,17 +81,17 @@ class MyWebviewViewProvider implements vscode.WebviewViewProvider {
       <html lang="en">
       <body style="overflow: hidden">
         <div>
-          <img id="problem-image" src="${imageSrc}" width="210px" style="transition: opacity 0.3s; opacity: 0.05;" />
-          <p id="encouragement" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: -1;">0 problems! Good job!</p>
+          <img id="pirate" src="${imageSrc}" width="210px" style="transition: opacity 0.3s; opacity: 0.05;" />
+          <p id="encouragement" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 1;">0 problems! Good job!</p>
         </div>
 
         <script>
           function getProblemText(count, maxCount) {
             if (count === 0) return "0 problems! Good job!";
-            if (count <= maxCount / 10) return count + " problems, all good gang"; // ? default: 5
-            if (count <= maxCount / 5) return "You gonna fix those " + count + " problems?"; // ? default: 10
-            if (count <= maxCount / 2) return "Fix these " + count + " problems NOW!"; // ? default: 25
-            if (count <= maxCount / 1.25) return count + " problems is NOT a flex lil bro"; // ? default: 40
+            if (count <= maxCount * 0.1) return count + " problem" + (count === 1 ? '' : 's') + ", all good gang"; // ? default: 5
+            if (count <= maxCount * 0.2) return "You gonna fix those " + count + " problems?"; // ? default: 10
+            if (count <= maxCount * 0.5) return "Fix those " + count + " problems NOW!"; // ? default: 25
+            if (count <= maxCount * 0.8) return count + " problems is NOT a flex lil bro"; // ? default: 40
             return count + " problems... lock your doors";
           }
 
@@ -101,9 +101,12 @@ class MyWebviewViewProvider implements vscode.WebviewViewProvider {
 
             const count = message.count;
             const maxProblems = message.maxCount;
-            const opacity = Math.max(0.05, Math.min(1, count / maxProblems));
 
-            document.getElementById('problem-image').style.opacity = opacity;
+            const pirateOpacity = Math.max(0.05, Math.min(1, count / maxProblems));
+            document.getElementById('pirate').style.opacity = pirateOpacity;
+
+            const textOpacity = Math.max(0.5, 1 - (count / maxProblems));
+            document.getElementById("encouragement").style.opacity = textOpacity;
             document.getElementById("encouragement").innerText = getProblemText(count, maxProblems);
           });
         </script>
