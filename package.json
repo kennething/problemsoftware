@@ -2,7 +2,7 @@
   "name": "problemsoftware",
   "displayName": "ProblemSoftware",
   "description": "Problems in your software? A certain pirate will be there to remind you to not code like him!",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "KennethNg",
   "repository": {
     "url": "https://github.com/kennething/problemsoftware"
@@ -54,9 +54,7 @@
   },
   "devDependencies": {
     "@types/vscode": "^1.90.0",
-    "@types/mocha": "^10.0.10",
-    "@types/node": "20.x",
-    "@typescript-eslint/parser": "^8.31.1",
-    "typescript": "^5.8.3"
+    "@types/node": "24.x",
+    "typescript": "^5.9.3"
   }
 }

@@ -91,7 +91,8 @@ class MyWebviewViewProvider implements vscode.WebviewViewProvider {
             if (count <= maxCount * 0.1) return count + " problem" + (count === 1 ? '' : 's') + ", all good gang"; // ? default: 5
             if (count <= maxCount * 0.2) return "You gonna fix those " + count + " problems?"; // ? default: 10
             if (count <= maxCount * 0.5) return "Fix those " + count + " problems NOW!"; // ? default: 25
-            if (count <= maxCount * 0.8) return count + " problems is NOT a flex lil bro"; // ? default: 40
+            if (count <= maxCount * 0.7) return count + " problems is NOT a flex lil bro"; // ? default: 35
+            if (count <= maxCount * 0.9) return (maxCount - count) + " more problems and we're gonna have some problems..."; // ? default: 45
             return count + " problems... lock your doors";
           }
 
